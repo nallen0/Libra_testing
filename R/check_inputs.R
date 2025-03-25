@@ -44,7 +44,7 @@ check_inputs = function(input,
       labels = as.character(meta[[label_col]])
     }
     cell_types = as.character(meta[[cell_type_col]])
-    expr = Seurat::GetAssayData(input, slot = 'counts')
+    expr = Seurat::GetAssayData(input, layer = 'counts')
   } else if ("cell_data_set" %in% class(input)) {
     # confirm monocle3 is installed
     if (!requireNamespace("monocle3", quietly = TRUE)) {
@@ -98,7 +98,7 @@ check_inputs = function(input,
       labels = as.character(meta[[label_col]])
     }
     cell_types = as.character(meta[[cell_type_col]])
-    expr = Signac::GetAssayData(input, slot = 'peaks')
+    expr = Signac::GetAssayData(input, layer = 'peaks')
   } else if ("ArchR" %in% class(input)){
     # confirm ArchR is installed
     if (!requireNamespace("ArchR", quietly = TRUE)) {
